@@ -1,0 +1,24 @@
+#!/usr/bin/env bash
+
+set -euo pipefail
+
+[ "${BASH_VERSINFO:-0}" -ge 4 ] || {
+  echo "bash version 4 or higher is required" >&2
+  exit 1
+}
+
+include=(
+  bin/lib/utils/*.bash
+  bin/lib/config/*.bash
+  bin/lib/git/*.bash
+  bin/lib/docker/node/*.bash
+  bin/lib/docker/*.bash
+  bin/lib/tools/*.bash
+  bin/lib/app/*.bash
+  bin/lib/main.bash
+)
+
+for script in "${include[@]}"; do
+  # shellcheck source=bin/lib/main.bash
+  source "${script}"
+done
