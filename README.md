@@ -1,4 +1,4 @@
-# 🧠 LifeOS
+# 🌱 LifeOS
 
 Official site.
 

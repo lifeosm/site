@@ -12,9 +12,9 @@ const inter = Inter({
 })
 
 export const metadata: Metadata = {
-  title: 'Everything Starts as a Square - Get lost in the world of icon design',
+  title: 'LifeOS - next-step evolution for the AI era',
   description:
-    'A book and video course that teaches you how to design your own icons from scratch.',
+    'LifeOS combines Time Management and Personal Knowledge Management to help individuals adapt to an era of high velocity, massive information flows, and the rise of artificial intelligence.',
 }
 
 export default function RootLayout({

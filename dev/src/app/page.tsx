@@ -1,5 +1,5 @@
-import { Author } from '@/components/Author'
 import { Footer } from '@/components/Footer'
+import { Founder } from '@/components/Founder'
 import { FreeChapters } from '@/components/FreeChapters'
 import { Hero } from '@/components/Hero'
 import { Introduction } from '@/components/Introduction'
@@ -51,7 +51,7 @@ export default function Home() {
       <FreeChapters />
       <Pricing />
       <Testimonials />
-      <Author />
+      <Founder />
       <Footer />
     </>
   )

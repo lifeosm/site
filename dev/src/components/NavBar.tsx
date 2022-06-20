@@ -17,7 +17,7 @@ const sections = [
   { id: 'screencasts', title: 'Screencasts' },
   { id: 'resources', title: 'Resources' },
   { id: 'pricing', title: 'Pricing' },
-  { id: 'author', title: 'Author' },
+  { id: 'founder', title: 'Founder' },
 ]
 
 function MenuIcon({

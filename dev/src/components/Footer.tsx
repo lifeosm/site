@@ -7,8 +7,10 @@ export function Footer() {
         <GridPattern x="50%" />
       </div>
       <div className="relative text-center text-sm text-slate-600">
-        <p>Copyright &copy; {new Date().getFullYear()} Lindehoff Design, LLC</p>
-        <p>All rights reserved.</p>
+        <p>made with ❤️ for everyone by{' '}
+          <a className={"underline hover:no-underline"}
+             href={"https://www.octolab.org/"}>OctoLab</a>
+        </p>
       </div>
     </footer>
   )
