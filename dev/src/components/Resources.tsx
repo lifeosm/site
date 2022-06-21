@@ -2,55 +2,51 @@ import Image from 'next/image'
 
 import { Container } from '@/components/Container'
 import { SectionHeading } from '@/components/SectionHeading'
-import abstractBackgroundImage from '@/images/resources/abstract-background.png'
-import discordImage from '@/images/resources/discord.svg'
-import figmaImage from '@/images/resources/figma.svg'
-import videoPlayerImage from '@/images/resources/video-player.svg'
+
+import buildingasecondbrain from '@/images/resources/buildingasecondbrain.png'
+import bulletjournal from '@/images/resources/bulletjournal.png'
+import dailystoic from '@/images/resources/dailystoic.png'
 
 const resources = [
   {
-    title: 'Figma icon templates',
+    title: 'Building a Second Brain',
     description:
-      'Pefectly structured templates for quickly designing new icons at dozens of common sizes.',
-    image: function FigmaImage() {
-      return (
-        <div className="absolute inset-0 flex items-center justify-center bg-[radial-gradient(#2C313D_35%,#000)]">
-          <Image src={figmaImage} alt="" unoptimized />
-        </div>
-      )
-    },
-  },
-  {
-    title: 'Weekly icon teardowns',
-    description:
-      'Weekly videos where we dissect and recreate beautiful icons we find on the web.',
-    image: function VideoPlayerImage() {
+      'The proven method to organize your digital life and unlock your creative potential. Harness the full potential of what you know to lead a more fulfilling life.',
+    image: function() {
       return (
         <div className="absolute inset-0 flex items-center justify-center">
-          <Image
-            className="absolute inset-0 h-full w-full object-cover"
-            src={abstractBackgroundImage}
-            alt=""
-            sizes="(min-width: 1280px) 21rem, (min-width: 1024px) 33vw, (min-width: 768px) 19rem, (min-width: 640px) 50vw, 100vw"
-          />
-          <Image
-            className="relative"
-            src={videoPlayerImage}
-            alt=""
-            unoptimized
-          />
+          <a href={"https://www.buildingasecondbrain.com/"} target={"_blank"}
+             className="text-xs underline hover:no-underline">
+            <Image src={buildingasecondbrain} alt="Building a Second Brain site screenshot" /></a>
         </div>
       )
     },
   },
   {
-    title: 'Community of icon designers',
+    title: 'Daily Stoic',
     description:
-      "A private Discord server where you can get help and give feedback on each others' work.",
-    image: function DiscordImage() {
+      'Stoicism is a philosophy designed to make us more resilient, happier, more virtuous, and wiser–and, as a result, better people, better parents, and better professionals.',
+    image: function() {
       return (
-        <div className="absolute inset-0 flex items-center justify-center bg-[#6366F1]">
-          <Image src={discordImage} alt="" unoptimized />
+        <div className="absolute inset-0 flex items-center justify-center">
+          <a href={"https://dailystoic.com/"} target={"_blank"}
+             className="text-xs underline hover:no-underline">
+            <Image src={dailystoic} alt="Daily Stoic site screenshot" />
+          </a>
+        </div>
+      )
+    },
+  },
+  {
+    title: 'Bullet Journal',
+    description:
+      'Meet the analog method for the digital age that will help you track the past, order the present, and design your future.',
+    image: function() {
+      return (
+        <div className="absolute inset-0 flex items-center justify-center">
+          <a href={"https://bulletjournal.com/"} target={"_blank"}>
+            <Image src={bulletjournal} alt="Bullet Journal site screenshot" />
+          </a>
         </div>
       )
     },
@@ -69,13 +65,11 @@ export function Resources() {
           Resources
         </SectionHeading>
         <p className="mt-8 font-display text-4xl font-bold tracking-tight text-slate-900">
-          Tools and resources you can use to get started even faster and
-          progress even further.
+          These great kinds of stuff can improve your productivity
         </p>
         <p className="mt-4 text-lg tracking-tight text-slate-700">
-          Design assets, icon teardowns, and a community of fellow icon
-          designers where you can ask questions, get feedback, and accelerate
-          your learning.
+          Find out how to elevate your efficiency by uncovering tools
+          and methods that organize your digital life and maximize your potential.
         </p>
       </Container>
       <Container size="lg" className="mt-16">
