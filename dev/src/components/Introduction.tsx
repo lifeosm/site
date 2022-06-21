@@ -49,7 +49,7 @@ export function Introduction() {
         </p>
         <p className="mt-10">
           <Link
-            href="#free-chapters"
+            href="#subscribe"
             className="text-base font-medium text-blue-600 hover:text-blue-800"
           >
             Get two free chapters straight to your inbox{' '}
