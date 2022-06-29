@@ -7,13 +7,7 @@ const {id, ...props} = Astro.props
 ---
 <svg aria-hidden="true" class="absolute inset-0 h-full w-full">
   <defs>
-    <pattern
-      id={id}
-      width="128"
-      height="128"
-      patternUnits="userSpaceOnUse"
-      {...Astro.props}
-    >
+    <pattern id={id} width="128" height="128" patternUnits="userSpaceOnUse" {...Astro.props}>
       <path d="M0 128V.5H128" fill="none" stroke="currentColor"/>
     </pattern>
   </defs>
