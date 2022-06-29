@@ -1,7 +1,7 @@
 ---
 import clsx from 'clsx';
 
-import '../styles/tailwind.css';
+import '@styles/tailwind.css';
 
 interface Props {
   title: string;
@@ -10,7 +10,6 @@ interface Props {
 
 const {title, description} = Astro.props;
 ---
-
 <!doctype html>
 <html lang="en" class={clsx('h-full scroll-smooth bg-white antialiased')}>
 <head>
