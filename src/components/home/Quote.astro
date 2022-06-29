@@ -1,0 +1,17 @@
+---
+interface Props {
+  quote: string;
+  author: string;
+  position: string;
+}
+
+const {quote, author, position} = Astro.props
+---
+<figure class="relative mx-auto max-w-md text-center lg:mx-0 lg:text-left">
+  <blockquote class="mt-2">
+    <p class="font-display text-xl font-medium text-slate-900">“{quote}”</p>
+  </blockquote>
+  <figcaption class="mt-2 text-sm text-slate-500">
+    <strong class="font-semibold text-blue-600 before:content-['—_']">{author}</strong>, {position}
+  </figcaption>
+</figure>

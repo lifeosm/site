@@ -2,7 +2,7 @@ import { type Config } from 'tailwindcss'
 import defaultTheme from 'tailwindcss/defaultTheme'
 
 export default {
-	content: ['./src/**/*.{astro,html,js,jsx,md,mdx,svelte,ts,tsx,vue}'],
+	content: ['./src/**/*.astro'],
   theme: {
     boxShadow: {
       sm: '0 2px 6px rgb(15 23 42 / 0.08)',
