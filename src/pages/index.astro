@@ -5,6 +5,7 @@ import Footer from '@components/home/Footer.astro'
 import Founder from '@components/home/Founder.astro'
 import Hero from '@components/home/Hero.astro'
 import Intro from '@components/home/Intro.astro'
+import { NavBar } from '@components/home/NavBar.tsx'
 import Persona from '@components/home/Persona.astro'
 import Sparkle from '@components/home/Sparkle.astro'
 import Tact from '@components/home/Tact.astro'
@@ -15,6 +16,7 @@ const description =
 ---
 <Layout title={title} description={description}>
   <Hero/>
+  <NavBar/>
   <Intro/>
   <Sparkle index="1"/>
   <Tact index="2"/>
