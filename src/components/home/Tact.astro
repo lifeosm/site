@@ -1,7 +1,7 @@
 ---
 import SectionHeading from '@components/home/SectionHeading.astro'
 
-import cover from '@assets/sparkle.jpg'
+import cover from '@assets/tact.jpg'
 
 interface Props {
   index: string;
@@ -9,19 +9,19 @@ interface Props {
 
 const {index} = Astro.props
 ---
-<section id="sparkle" aria-labelledby="sparkle-heading" class="relative">
+<section id="tact" aria-labelledby="tact-heading" class="relative">
   <div
-    class="aspect-h-2 aspect-w-3 overflow-hidden sm:aspect-w-5 lg:aspect-none lg:absolute lg:h-full lg:w-1/2 lg:pr-4 xl:pr-16">
-    <img src={cover.src} class="h-full w-full object-cover object-center lg:h-full lg:w-full lg:rounded-r-6xl"
+    class="aspect-h-2 aspect-w-3 overflow-hidden sm:aspect-w-5 lg:aspect-none lg:absolute lg:right-0 lg:h-full lg:w-1/2 lg:pl-4 xl:pl-16">
+    <img src={cover.src} class="h-full w-full object-cover object-center lg:h-full lg:w-full lg:rounded-l-6xl"
          alt="Black leather journal with silver steel disc binding resting on wooden shelf with machined steel pen."/>
   </div>
   <div
     class="mx-auto max-w-2xl px-4 pb-24 pt-16 sm:px-6 sm:pb-32 lg:grid lg:max-w-7xl lg:grid-cols-2 lg:gap-x-8 lg:px-8 lg:pt-32">
-    <div class="lg:col-start-2">
-      <SectionHeading id="sparkle-title" number={index}>✨ Sparkle</SectionHeading>
-      <p class="mt-4 text-4xl font-bold tracking-tight text-gray-900">How you think</p>
+    <div class="lg:col-start-1">
+      <SectionHeading id="tact-title" number={index}>🤹 Tact</SectionHeading>
+      <p class="mt-4 text-4xl font-bold tracking-tight text-gray-900">How you act</p>
       <p class="mt-4 text-gray-500">
-        The personal development framework and Personal Knowledge Management platform.
+        The next-generation Time Management software and Work-Life Management platform.
       </p>
       <dl class="mt-10 grid grid-cols-1 gap-x-8 gap-y-10 text-sm sm:grid-cols-2">
         <div>
@@ -48,9 +48,9 @@ const {index} = Astro.props
         </div>
       </dl>
       <p class="mt-8">
-        <a href="https://sparkle.wiki/" target="_blank"
+        <a href="https://tact.run/" target="_blank"
            class="text-base font-medium text-blue-600 hover:text-blue-800">
-          Learn more at sparkle.wiki
+          Learn more at tact.run
           <span aria-hidden="true">&rarr;</span>
         </a>
       </p>
