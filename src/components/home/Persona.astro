@@ -1,0 +1,59 @@
+---
+import SectionHeading from '@components/home/SectionHeading.astro'
+
+import cover from '@assets/persona.jpg'
+
+interface Props {
+  index: string;
+}
+
+const {index} = Astro.props
+---
+<section id="persona" aria-labelledby="persona-heading" class="relative">
+  <div
+    class="aspect-h-2 aspect-w-3 overflow-hidden sm:aspect-w-5 lg:aspect-none lg:absolute lg:h-full lg:w-1/2 lg:pr-4 xl:pr-16">
+    <img src={cover.src} class="h-full w-full object-cover object-center lg:h-full lg:w-full lg:rounded-r-6xl"
+         alt="Black leather journal with silver steel disc binding resting on wooden shelf with machined steel pen."/>
+  </div>
+  <div
+    class="mx-auto max-w-2xl px-4 pb-24 pt-16 sm:px-6 sm:pb-32 lg:grid lg:max-w-7xl lg:grid-cols-2 lg:gap-x-8 lg:px-8 lg:pt-32">
+    <div class="lg:col-start-2">
+      <SectionHeading id="persona-title" number={index}>🎭 Persona</SectionHeading>
+      <p class="mt-4 text-4xl font-bold tracking-tight text-gray-900">How you look</p>
+      <p class="mt-4 text-gray-500">
+        The personal social network and public profile.
+      </p>
+      <dl class="mt-10 grid grid-cols-1 gap-x-8 gap-y-10 text-sm sm:grid-cols-2">
+        <div>
+          <dt class="font-medium text-gray-900">Durable</dt>
+          <dd class="mt-2 text-gray-500">The leather cover and machined steel disc binding stand up to daily use for
+            years to come.
+          </dd>
+        </div>
+        <div>
+          <dt class="font-medium text-gray-900">Refillable</dt>
+          <dd class="mt-2 text-gray-500">Buy it once and refill as often as you need. Subscribe and save on routine
+            refills.
+          </dd>
+        </div>
+        <div>
+          <dt class="font-medium text-gray-900">Thoughtfully designed</dt>
+          <dd class="mt-2 text-gray-500">The comfortable disc binding allows you to quickly rearrange pages or combine
+            lined, graph, and blank refills.
+          </dd>
+        </div>
+        <div>
+          <dt class="font-medium text-gray-900">Locally made</dt>
+          <dd class="mt-2 text-gray-500">Responsibly and sustainably made real close to wherever you are, somehow.</dd>
+        </div>
+      </dl>
+      <p class="mt-8">
+        <a href="https://jointo.space/" target="_blank"
+           class="text-base font-medium text-blue-600 hover:text-blue-800">
+          Learn more at jointo.space
+          <span aria-hidden="true">&rarr;</span>
+        </a>
+      </p>
+    </div>
+  </div>
+</section>
