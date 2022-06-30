@@ -1,5 +1,5 @@
 ---
-import GridPattern from '@components/GridPattern.astro'
+import Pattern from '@components/patterns/Grid.astro'
 import SectionHeading from '@components/home/SectionHeading.astro'
 
 import GitHub from '@components/icons/GitHub.astro'
@@ -17,7 +17,7 @@ const {index} = Astro.props
 <section id="founder" aria-labelledby="founder-title"
          class="relative scroll-mt-14 pb-3 pt-8 sm:scroll-mt-32 sm:pb-16 sm:pt-10 lg:pt-16">
   <div class="absolute inset-x-0 bottom-0 top-1/2 text-slate-900/10 [mask-image:linear-gradient(transparent,white)]">
-    <GridPattern id="founder-pattern" x="50%" y="100%"/>
+    <Pattern id="founder-pattern" x="50%" y="100%"/>
   </div>
   <div class="relative mx-auto max-w-5xl pt-16 sm:px-6">
     <div class="bg-slate-50 pt-px sm:rounded-6xl">

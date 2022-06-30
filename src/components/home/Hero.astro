@@ -1,7 +1,7 @@
 ---
 import cover from '@assets/cover.jpg';
 
-import GridPattern from '@components/GridPattern.astro';
+import Pattern from '@components/patterns/Grid.astro';
 import Quote from '@components/home/Quote.astro';
 ---
 <header id="header" class="overflow-hidden bg-slate-100 lg:bg-transparent lg:px-5">
@@ -10,7 +10,7 @@ import Quote from '@components/home/Quote.astro';
     <div class="relative flex items-end lg:col-span-5 lg:row-span-2">
       <div
         class="absolute -bottom-12 -top-20 left-0 right-1/2 z-10 rounded-br-6xl bg-blue-600 text-white/10 md:bottom-8 lg:-inset-y-32 lg:left-[-100vw] lg:right-full lg:-mr-40">
-        <GridPattern id="header-pattern" x="100%" y="100%" patternTransform="translate(112 64)"/>
+        <Pattern id="header-pattern" x="100%" y="100%" patternTransform="translate(112 64)"/>
       </div>
       <div class="relative z-10 mx-auto flex w-64 rounded-xl bg-slate-600 shadow-xl md:w-80 lg:w-auto overflow-hidden">
         <img src={cover.src} class="w-full"
