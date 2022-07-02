@@ -4,6 +4,7 @@
   "version": "0.0.1",
   "private": true,
   "scripts": {
+    "redirects": "node --no-warnings src/dynamic/router.mjs",
     "dev": "astro dev",
     "start": "astro dev",
     "build": "astro check && astro build",
