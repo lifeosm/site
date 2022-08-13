@@ -10,7 +10,6 @@ dist/
 # generated types
 .astro/
 .next/
-*.d.ts
 
 # logs
 npm-debug.log*
