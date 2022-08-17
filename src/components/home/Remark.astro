@@ -1,0 +1,43 @@
+---
+import Container from '@components/Container.astro'
+import Pattern from '@components/patterns/Grid.astro'
+
+interface Props {
+  id: string
+  author: {
+    name: string
+    role: string
+    image: string
+  }
+}
+
+const {id, author} = Astro.props
+---
+<aside
+  id={id} aria-label={`Remark from ${author.name}`}
+  class="relative bg-slate-100 py-16 sm:py-32 mb-16 sm:mb-20 lg:mb-32">
+  <div class="text-slate-900/10">
+    <Pattern id={`remark-${id}`} x="50%" patternTransform="translate(0 80)"/>
+  </div>
+  <Container size="xs" className="relative">
+    <figure>
+      <blockquote class="mt-10 font-display text-4xl font-medium tracking-tight text-slate-900 sm:text-center">
+        <slot/>
+      </blockquote>
+      <figcaption class="mt-10 flex items-center sm:justify-center">
+        <div class="overflow-hidden rounded-full bg-slate-200">
+          <img src={author.image} alt=""
+               width={48} height={48}
+               class="h-12 w-12 object-cover"
+          />
+        </div>
+        <div class="ml-4">
+          <div class="text-base font-medium leading-6 tracking-tight text-slate-900">
+            {author.name}
+          </div>
+          <div class="mt-1 text-sm text-slate-600">{author.role}</div>
+        </div>
+      </figcaption>
+    </figure>
+  </Container>
+</aside>
