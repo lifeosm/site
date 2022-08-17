@@ -5,7 +5,7 @@ import React, { useEffect, useRef, useState } from 'react'
 const sections = [
   {id: 'sparkle', title: '✨ Sparkle'},
   {id: 'tact', title: '🤹 Tact'},
-  {id: 'persona', title: '🎭 Persona'},
+  {id: 'persona', title: '🫅 Persona'},
   {id: 'founder', title: '👨🏻‍💻 Founder'},
 ]
 
