@@ -1,4 +1,5 @@
 # inventory
+.vendor/
 .vercel/
 
 # dependencies
