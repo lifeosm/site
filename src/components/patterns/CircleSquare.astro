@@ -1,9 +1,11 @@
 ---
-interface Props {
-  id: string;
-  size?: number;
-  gapX?: number;
-  gapY?: number;
+import type { HTMLAttributes } from 'astro/types'
+
+interface Props extends HTMLAttributes<'svg'> {
+  id: string
+  size?: number
+  gapX?: number
+  gapY?: number
 }
 
 const {

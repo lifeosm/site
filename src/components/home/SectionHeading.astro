@@ -1,9 +1,10 @@
 ---
+import type { HTMLAttributes } from 'astro/types'
 import clsx from 'clsx'
 
-interface Props {
-  number: string;
-  className?: string;
+interface Props extends HTMLAttributes<'h2'> {
+  number: string
+  className?: string
 }
 
 const {number, className, ...props} = Astro.props

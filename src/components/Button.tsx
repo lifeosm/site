@@ -1,5 +1,5 @@
----
 import clsx from 'clsx'
+import React from 'react'
 
 const baseStyles = {
   solid:
@@ -23,31 +23,39 @@ const variantStyles = {
   },
 }
 
-interface Props {
-  color?: string;
-  variant?: string;
-  href?: string;
-  className?: string;
-}
+type VariantKey = keyof typeof variantStyles
+type ColorKey<Variant extends VariantKey> =
+  keyof (typeof variantStyles)[Variant]
 
-const {
-  color = 'slate',
-  variant = 'solid',
-  href, className, ...props
-} = Astro.props
+type ButtonProps<
+  Variant extends VariantKey,
+  Color extends ColorKey<Variant>,
+> = {
+  variant?: Variant
+  color?: Color
+} & (
+  | Omit<React.ComponentPropsWithoutRef<'a'>, 'color'>
+  | (Omit<React.ComponentPropsWithoutRef<'button'>, 'color'> & {
+  href?: undefined
+})
+  )
 
-const compositeClass = clsx(
-  baseStyles[variant],
-  variantStyles[variant][color],
-  className,
-)
----
-{typeof props.href === 'undefined' ? (
-<button class={compositeClass} {...props}>
-  <slot/>
-</button>
+export function Button<
+  Color extends ColorKey<Variant>,
+  Variant extends VariantKey = 'solid',
+>({variant, color, className, ...props}: ButtonProps<Variant, Color>) {
+  variant = variant ?? ('solid' as Variant)
+  color = color ?? ('slate' as Color)
+
+  className = clsx(
+    baseStyles[variant],
+    variantStyles[variant][color] ?? '',
+    className,
+  )
+
+  return typeof props.href === 'undefined' ? (
+    <button className={className} {...props}/>
   ) : (
-<a href={props.href} class={compositeClass} {...props}>
-  <slot/>
-</a>
-  )}
+    <a className={className} {...props}/>
+  )
+}
