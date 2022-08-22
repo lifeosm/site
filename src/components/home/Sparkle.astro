@@ -1,5 +1,5 @@
 ---
-import SectionHeading from '@components/home/SectionHeading.astro'
+import Heading from '@components/home/Heading.astro'
 
 import cover from '@assets/sparkle.jpg'
 
@@ -18,7 +18,7 @@ const {index} = Astro.props
   <div
     class="mx-auto max-w-2xl px-4 pb-24 pt-16 sm:px-6 sm:pb-32 lg:grid lg:max-w-7xl lg:grid-cols-2 lg:gap-x-8 lg:px-8 lg:pt-32">
     <div class="lg:col-start-2">
-      <SectionHeading id="sparkle-title" number={index}>✨ Sparkle</SectionHeading>
+      <Heading id="sparkle-title" number={index}>✨ Sparkle</Heading>
       <p class="mt-4 text-4xl font-bold tracking-tight text-gray-900">How you think</p>
       <p class="mt-4 text-gray-500">
         The personal development framework and Personal Knowledge Management platform.

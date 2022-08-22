@@ -1,6 +1,6 @@
 ---
 import Pattern from '@components/patterns/Grid.astro'
-import SectionHeading from '@components/home/SectionHeading.astro'
+import Heading from '@components/home/Heading.astro'
 
 import GitHub from '@components/icons/GitHub.astro'
 import LinkedIn from '@components/icons/LinkedIn.astro'
@@ -27,7 +27,7 @@ const {index} = Astro.props
              sizes="(min-width: 1024px) 18rem, (min-width: 768px) 16rem, 11rem"/>
       </div>
       <div class="px-4 py-10 sm:px-10 sm:py-16 md:py-20 lg:px-20 lg:py-32">
-        <SectionHeading id="founder-title" number={index}>👨🏻‍💻 Founder</SectionHeading>
+        <Heading id="founder-title" number={index}>👨🏻‍💻 Founder</Heading>
         <p class="mt-8 font-display text-5xl font-extrabold tracking-tight text-slate-900 sm:text-6xl">
           <span class="relative whitespace-nowrap text-blue-600">
             <svg aria-hidden="true" viewBox="0 0 418 42"
