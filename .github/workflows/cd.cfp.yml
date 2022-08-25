@@ -1,11 +1,6 @@
 name: Delivery to Cloudflare Pages
 
 on:
-  workflow_run:
-    workflows: [ Continuous integration ]
-    types: [ completed ]
-    branches: [ main ]
-
   schedule:
     - cron: 0 7 1 * * # at 07:00 on day-of-month 1, UTC
 
@@ -16,6 +11,11 @@ on:
         type: string
         default: manual healthcheck
         required: true
+
+  workflow_run:
+    workflows: [ Continuous integration ]
+    types: [ completed ]
+    branches: [ main ]
 
 concurrency:
   group: pages
@@ -29,48 +29,43 @@ jobs:
 
     steps:
       - name: Checkout the repository
-        uses: actions/checkout@v4
+        uses: actions/checkout@v4.1.1
         with: { fetch-depth: 0 }
       - name: Set up Node.js environment
-        uses: actions/setup-node@v4
+        uses: actions/setup-node@v4.0.0
         with:
           node-version: 20
           cache: npm
           cache-dependency-path: package-lock.json
           check-latest: true
       - name: Install dependencies
-        run: ./Taskfile npm ci
+        run: npm ci
 
       - name: Build the application
-        run: ./Taskfile npm run build
+        run: npm run build
       - name: Upload the site
-        uses: actions/upload-artifact@v3
-        with:
-          name: dist
-          path: dist/
-          if-no-files-found: error
+        uses: actions/upload-artifact@v3.1.3
+        with: { name: dist, path: dist/, if-no-files-found: error }
 
   deploy:
     name: Deploying
     needs: [ build ]
     runs-on: ubuntu-latest
-    environment:
-      name: cloudflare-pages
-      url: ${{ steps.deployment.outputs.url }}
     permissions:
       contents: read
       deployments: write
+    environment:
+      name: cloudflare-pages
+      url: ${{ steps.deployment.outputs.url }}
 
     steps:
       - name: Fetch the site
-        uses: actions/download-artifact@v3
-        with:
-          name: dist
-          path: dist/
+        uses: actions/download-artifact@v3.0.2
+        with: { name: dist, path: dist/ }
 
-      - name: Publish to Cloudflare Pages
+      - name: Publish it to Cloudflare Pages
         id: deployment
-        uses: cloudflare/pages-action@v1
+        uses: cloudflare/pages-action@v1.5.0
         with:
           apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
           accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
@@ -86,13 +81,13 @@ jobs:
 
     steps:
       - name: Checkout the repository
-        uses: actions/checkout@v4
+        uses: actions/checkout@v4.1.1
         with: { fetch-depth: 0 }
 
       - name: Send notification
         uses: ./.github/actions/notify
         continue-on-error: true
         with:
-          emoji: 👨‍💻
+          emoji: 🚀
           channel: ${{ secrets.SLACK_WEBHOOK }}
           success: ${{ ! contains(needs.*.result, 'failure') }}
