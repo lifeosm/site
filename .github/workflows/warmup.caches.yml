@@ -1,0 +1,74 @@
+name: Workflow caches warmup
+
+on:
+  workflow_dispatch:
+    inputs:
+      reason:
+        description: The reason for dispatching it manually.
+        type: string
+        default: manual healthcheck
+        required: true
+
+  workflow_run:
+    workflows: [ Workflow caches cleanup ]
+    types: [ completed ]
+    branches: [ main ]
+
+jobs:
+  deps:
+    name: Caching deps
+    runs-on: ubuntu-latest
+    if: ${{ contains(fromJSON('[null, "success"]'), github.event.workflow_run.conclusion) }}
+
+    steps:
+      - name: Checkout the repository
+        uses: actions/checkout@v4
+        with: { fetch-depth: 0 }
+      - name: Set up Node.js environment
+        uses: actions/setup-node@v3
+        with:
+          node-version: 20
+          cache: npm
+          cache-dependency-path: package-lock.json
+          check-latest: true
+
+      - name: Install dependencies
+        run: ./Taskfile npm ci
+
+  tools:
+    name: Caching tools
+    runs-on: ubuntu-latest
+    if: ${{ contains(fromJSON('[null, "success"]'), github.event.workflow_run.conclusion) }}
+
+    steps:
+      - name: Checkout the repository
+        uses: actions/checkout@v4
+        with: { fetch-depth: 0 }
+      - name: Set up Node.js environment
+        uses: actions/setup-node@v3
+        with:
+          node-version: 20
+          cache: npm
+          cache-dependency-path: tools/package-lock.json
+          check-latest: true
+
+      - name: Install dependencies
+        run: ./Taskfile tools npm ci
+
+  notify:
+    name: Notifying
+    needs: [ deps, tools ]
+    runs-on: ubuntu-latest
+    if: failure() || success()
+
+    steps:
+      - name: Checkout the repository
+        uses: actions/checkout@v4
+        with: { fetch-depth: 0 }
+
+      - name: Send notification
+        uses: ./.github/actions/notify
+        with:
+          emoji: ♻️
+          channel: ${{ secrets.SLACK_WEBHOOK }}
+          success: ${{ ! contains(needs.*.result, 'failure') }}
