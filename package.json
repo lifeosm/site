@@ -12,7 +12,7 @@
   },
   "dependencies": {
     "@astrojs/react": "^3.0.7",
-    "@astrojs/tailwind": "^5.0.3",
+    "@astrojs/tailwind": "^5.0.4",
     "@headlessui/react": "^1.7.17",
     "@tailwindcss/aspect-ratio": "^0.4.2",
     "@types/react": "^18.2.43",
